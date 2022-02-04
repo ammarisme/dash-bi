@@ -3,6 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/dashApp.iml" filepath="$PROJECT_DIR$/.idea/dashApp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../github/hbs-backend-api/.idea/hbs-backend-api.iml" filepath="$PROJECT_DIR$/../github/hbs-backend-api/.idea/hbs-backend-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../github/hbs-frontend/.idea/hbs-frontend.iml" filepath="$PROJECT_DIR$/../github/hbs-frontend/.idea/hbs-frontend.iml" />
     </modules>
   </component>
 </project>

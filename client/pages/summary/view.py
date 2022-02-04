@@ -93,8 +93,7 @@ layout = html.Div(children=[
         # html.Div(date_type_card),
         # dropdown card
 
-        html.H4(children='Executive Summary'),
-        html.Br(),
+        # html.H4(children='Executive Summary'),
 
         html.Div(dbc.Row(
             [

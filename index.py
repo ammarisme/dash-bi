@@ -23,18 +23,17 @@ div to store sidebar, and content
 """
 app.layout = html.Div([
     dcc.Location(id='url', refresh=False),
-    html.Div(id='sidebar'),
     html.Div(id='page-content',
              style={
-                 "margin-left": "18rem",
-                 "margin-right": "2rem",
-                 "padding": "2rem 1rem",
+                 # "margin-left": "18rem",
+                 # "margin-right": "2rem",
+                 # "padding": "2rem 1rem",
              })
 ])
 
 
 @app.callback(Output('page-content', 'children'),
-              Output('sidebar', 'children'), Input('url', 'pathname'))
+              Input('url', 'pathname'))
 def display_app(pathname):
     """
     callback function to update the correct app related
@@ -42,14 +41,13 @@ def display_app(pathname):
     """
     # URLs setup for apps
     if pathname.split('/')[1] == 'app':
-        return display_page(pathname, app1_urlpatterns), app1_sidebar
+        return display_page(pathname, app1_urlpatterns)
     
     elif pathname.split('/')[1] == 'credentialing':
-        return display_page(pathname,credentialing_urlpatterns) , credentialing_sidebar
+        return display_page(pathname,credentialing_urlpatterns)
     
     elif pathname.split('/')[1] == 'client':
-        return display_page(pathname,client_urlpatterns) , client_sidebar
-
+        return display_page(pathname,client_urlpatterns)
     else:
         return '404'
     
