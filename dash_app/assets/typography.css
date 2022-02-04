@@ -1,0 +1,21 @@
+/* body {
+    font-family: sans-serif;
+}
+h1, h2, h3, h4, h5, h6 {
+    color: hotpink
+} */
+
+
+/*
+Date range picker box size and font size
+*/
+.DateInput_input, .DateInput_input_1 {
+    Height: 33px;
+    font-size: 15px;
+    font-weight: 500;
+    color: black;
+  }
+
+.cpt-tap-icon {
+    background: url("/dash_app/assets/icons/cpt.png");
+}

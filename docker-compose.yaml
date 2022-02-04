@@ -1,0 +1,35 @@
+# docker-compose.yml
+version: '3'
+networks:
+  myapp-network:
+services:
+  # main application
+  myapp:
+    container_name: myapp
+    build:
+      context: .
+    depends_on:
+      - "myapp-redis"
+      - "myapp-postgres"
+    networks:
+      - myapp-network
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+  # redis cache for storing data
+  myapp-redis:
+    container_name: myapp-redis
+    image: redis
+    networks:
+      - myapp-network
+    expose:
+      - "6379"
+  # postgres database
+  myapp-postgres:
+    container_name: myapp-postgres
+    image: postgres:14
+    networks:
+      - myapp-network
+    expose:
+      - "5432"
