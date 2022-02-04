@@ -24,20 +24,9 @@ model=Model()
 
 @app.callback(
     Output("charges-graph","figure"),
-    [Input("financial_class","value"),Input('url', 'pathname')],
-
+    Input('url', 'pathname')
     )
-def update_charge_plot(fin_class,pathname):
-    #
-    # def display_page(pathname):
-    #     if pathname.startswith("my-dash-app"):
-    #         # e.g. pathname = '/my-dash-app?firstname=John&lastname=Smith&birthyear=1990'
-    #
-    #         parsed = urllib.parse.urlparse(pathname)
-    #         parsed_dict = urllib.parse.parse_qs(parsed.query)
-    #
-    #         print(parsed_dict)
-
+def update_charge_plot(pathname):
     license_key = request.headers.environ.get('HTTP_REFERER').split('?')[1].split('=')[1]
     data_138192 = model.csv_to_dataframe(csv='summary_charge_data.csv')
     data_144452 = model.csv_to_dataframe(csv='summary_charge- 2023.csv')
@@ -50,63 +39,4 @@ def update_charge_plot(fin_class,pathname):
     fig = px.bar(pandas_data, x='year_month', y='charge')
 
     return fig
-    
-
-
-@app.callback(
-    Output("deposit-graph","figure"),
-    [Input("financial_class","value")],
-
-    )
-
-def update_deposit_plot(fin_class):
-    
-    data_canada = px.data.gapminder().query("country == 'Canada'")
-    fig = px.bar(data_canada, x='year', y='pop')
-
-    fig.update_layout(
-    xaxis_title="Date",
-    yaxis_title="Deposits in $")
-
-
-    return fig
-
-
-@app.callback(
-    Output("claim-graph","figure"),
-    [Input("financial_class","value")],
-
-    )
-
-def update_claim_plot(fin_class):
-
-    data_canada = px.data.gapminder().query("country == 'Canada'")
-    fig = px.bar(data_canada, x='year', y='pop')
-
-    fig.update_layout(
-    xaxis_title="Date",
-    yaxis_title="Claims in $")
-        
-    return fig
-
-
-@app.callback(
-    Output("ar-graph","figure"),
-    [Input("financial_class","value")],
-
-    )
-
-def update_ar_plot(fin_class):
-    
-    data_canada = px.data.gapminder().query("country == 'Canada'")
-    fig = px.bar(data_canada, x='year', y='pop')
-
-    fig.update_layout(
-    xaxis_title="Date",
-    yaxis_title="AR")
-
-    return fig
-
-
-
 
