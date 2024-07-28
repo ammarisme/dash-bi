@@ -1,5 +1,5 @@
 
-# Project Summary
+# Dash/Python BI dashboard
 
 This project is a Python-based Business Intelligence (BI) dashboard application built using the Dash framework. It consists of several modules that provide various functionalities and features, aimed at visualizing and analyzing data efficiently.
 
